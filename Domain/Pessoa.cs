@@ -2,17 +2,18 @@
 
 namespace pokeMongo.Domain
 {
-    public class Pessoa
+    public class Pessoa : IClassDomain
     {
-        public Guid Id { get; private set; }
-        public string Nome { get; private set; }
-        public string Endereco { get; private set; }
+        private Guid _Id { get; set; }
+        public string Nome { get; set; }
 
-        public Pessoa(Guid _Id, string _Nome, string _Endereco)
-        {
-            Id = _Id;
-            Nome = _Nome;
-            Endereco = _Endereco;
+        public Pessoa(string nome) 
+        { 
+            _Id = Guid.NewGuid();
+            Nome = nome;
         }
     }
+
+    public interface IClassDomain { }
+
 }
